@@ -29,6 +29,7 @@ setup(
         'Django >= 1.3',
         'requests >= 2.1.0',
         'polib == 1.0.4',
-        'microsofttranslator == 0.5'
+        'microsofttranslator == 0.5',
+	'goslate'
     ]
 )
