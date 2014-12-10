@@ -47,6 +47,9 @@ def find_pos(lang, project_apps=True, django_apps=False, third_party_apps=False)
     """
 
     paths = []
+    project_apps = True
+    django_apps = False
+    third_party_apps = True
 
     # project/locale
     parts = settings.SETTINGS_MODULE.split('.')
