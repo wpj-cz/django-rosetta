@@ -62,6 +62,7 @@ Rosetta can be configured via the following parameters, to be defined in your pr
 * ``ROSETTA_REQUIRES_AUTH``: Require authentication for all Rosetta views. Defaults to ``True``.
 * ``ROSETTA_POFILE_WRAP_WIDTH``: Sets the line-length of the edited PO file. Set this to ``0`` to mimic ``makemessage``'s ``--no-wrap`` option. Defaults to ``78``.
 * ``ROSETTA_STORAGE_CLASS``: See the note below on Storages. Defaults to ``rosetta.storage.CacheRosettaStorage``
+* ``ROSETTA_ENABLE_REFLANG``: See the note below on Reference Language. Defaults to ``False``.
 * ``ROSETTA_ACCESS_CONTROL_FUNCTION``: An alternative function that determines if a given user can access the translation views. This function receives a ``user`` as its argument, and returns a boolean specifying whether the passed user is allowed to use Rosetta or not.
 * ``ROSETTA_LANGUAGE_GROUPS``: Set to ``True`` to enable language-specific groups, which can be used to give different translators access to different languages. Instead of creating a global ``translators`` group, create individual per-language groups, e.g. ``translators-de``, ``translators-fr``, and assign users to these.
 * ``ROSETTA_CACHE_NAME``: When using ``rosetta.storage.CacheRosettaStorage``, you can store the rosetta data in a specific cache. This is particularly useful when your ``default`` cache is a ``django.core.cache.backends.dummy.DummyCache`` (which happens on pre-production environments). If unset, it will default to ``rosetta`` if a cache with this name exists, or ``default`` if not.
@@ -92,6 +93,18 @@ If you wish to grant editing access to other users:
 
 1. Create a 'translators' group in your admin interface
 2. Add the user you wish to grant translating rights to this group
+
+******************
+Reference Language
+******************
+
+If this option is enabled, a selector will appear on the translation page allowing you to choose
+a reference language. A reference language will allow you to display your ``msgid`` in a laguage
+that has already been translated. For example, if you already have a translation in French, a
+translator that only knows French and Spanish (but not English) could select French as a reference
+language to perform a "second hand" translation.
+
+The last row of the reference language selector, "MSGID", is to directly display ``msgid``.
 
 *****
 Usage
