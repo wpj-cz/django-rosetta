@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.conf import settings
-from django.core.cache import get_cache
+from django.core.cache import cache
 from rosetta.conf import settings as rosetta_settings
 import django
 import os
@@ -19,8 +19,6 @@ except NameError:
 if django.VERSION[0:2] >= (1,7):
     from django.apps import AppConfig
     from django.apps import apps
-
-cache = get_cache(rosetta_settings.ROSETTA_CACHE_NAME)
 
 
 def timestamp_with_timezone(dt=None):

@@ -1,15 +1,12 @@
-from django.core.cache import get_cache
+from django.core.cache import cache
 from django.conf import settings
-from django.utils import importlib
+import importlib
 from django.core.exceptions import ImproperlyConfigured
 from rosetta.conf import settings as rosetta_settings
 import hashlib
 import time
 import six
 import django
-
-
-cache = get_cache(rosetta_settings.ROSETTA_CACHE_NAME)
 
 
 class BaseRosettaStorage(object):
